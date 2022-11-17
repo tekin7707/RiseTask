@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contact", "Contact", "{DCCE2827-E09E-470F-A2E9-A7B5F5042DA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report", "Report", "{5DE3AFB0-8510-4C51-9869-FD1A622398B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Report.Api", "Report\Rise.Task.Report.Api\Rise.Task.Report.Api.csproj", "{455B6906-BC2D-436C-8F85-B8F159864D12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rise.Task.Contact.Api", "Contact\Rise.Task.Contact.Api\Rise.Task.Contact.Api.csproj", "{70877E8E-80C2-4DD5-A926-58324503AE2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Contact.Domain", "Contact\Rise.Task.Contact.Domain\Rise.Task.Contact.Domain.csproj", "{53D0D20E-951C-45C6-B069-CD63E74EED80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Contact.Db", "Contact\Rise.Task.Contact.Db\Rise.Task.Contact.Db.csproj", "{DDFEB3BE-C4B8-410B-B5B5-954CD8EE879F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Contact.Application", "Contact\Rise.Task.Contact.Application\Rise.Task.Contact.Application.csproj", "{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{455B6906-BC2D-436C-8F85-B8F159864D12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{455B6906-BC2D-436C-8F85-B8F159864D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{455B6906-BC2D-436C-8F85-B8F159864D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{455B6906-BC2D-436C-8F85-B8F159864D12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70877E8E-80C2-4DD5-A926-58324503AE2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70877E8E-80C2-4DD5-A926-58324503AE2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70877E8E-80C2-4DD5-A926-58324503AE2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70877E8E-80C2-4DD5-A926-58324503AE2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D0D20E-951C-45C6-B069-CD63E74EED80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D0D20E-951C-45C6-B069-CD63E74EED80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D0D20E-951C-45C6-B069-CD63E74EED80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D0D20E-951C-45C6-B069-CD63E74EED80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDFEB3BE-C4B8-410B-B5B5-954CD8EE879F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDFEB3BE-C4B8-410B-B5B5-954CD8EE879F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDFEB3BE-C4B8-410B-B5B5-954CD8EE879F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDFEB3BE-C4B8-410B-B5B5-954CD8EE879F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{455B6906-BC2D-436C-8F85-B8F159864D12} = {5DE3AFB0-8510-4C51-9869-FD1A622398B2}
+		{70877E8E-80C2-4DD5-A926-58324503AE2C} = {DCCE2827-E09E-470F-A2E9-A7B5F5042DA6}
+		{53D0D20E-951C-45C6-B069-CD63E74EED80} = {DCCE2827-E09E-470F-A2E9-A7B5F5042DA6}
+		{DDFEB3BE-C4B8-410B-B5B5-954CD8EE879F} = {DCCE2827-E09E-470F-A2E9-A7B5F5042DA6}
+		{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31} = {DCCE2827-E09E-470F-A2E9-A7B5F5042DA6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04781638-4661-45D1-9882-F4D90DE94558}
+	EndGlobalSection
+EndGlobal
