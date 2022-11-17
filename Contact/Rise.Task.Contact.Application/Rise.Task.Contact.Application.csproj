@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Rise.Task.Contact.Db\Rise.Task.Contact.Db.csproj" />
+    <ProjectReference Include="..\Rise.Task.Contact.Domain\Rise.Task.Contact.Domain.csproj" />
   </ItemGroup>
 
 </Project>
