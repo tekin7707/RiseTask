@@ -12,10 +12,10 @@ namespace Rise.Task.Contact.Application.Services
     {
         Task<Response<ContactDto>> GetAsync(int id);
         Task<Response<List<ContactDto>>> GetAllAsync();
-        Task<ContactDto> AddAsync(ContactDto model); 
-        Task<NoContent> DeleteAsync(int id);
-        Task<AddressDto> AddAddressAsync(AddressAddDto model);
-        Task<NoContent> DeleteAddressAsync(int id);
+        Task<Response<ContactDto>> AddAsync(ContactDto model); 
+        Task<Response<NoContent>> DeleteAsync(int id);
+        Task<Response<AddressDto>> AddAddressAsync(AddressAddDto model);
+        Task<Response<NoContent>> DeleteAddressAsync(int id);
 
         Task<Response<List<ContactDto>>> GetAllWithGeoAsync(string geo);
 
