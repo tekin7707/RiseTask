@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Rise.Task.Contact.Application.Dtos;
 using Rise.Task.Contact.Application.Services;
 
 namespace Rise.Task.Contact.Api.Controllers
@@ -51,9 +52,20 @@ namespace Rise.Task.Contact.Api.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteAsync()
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            var data = await _contactService.GetAllAsync();
+            var data = await _contactService.DeleteAsync(id);
+
+            return new ObjectResult(data)
+            {
+                StatusCode = data.StatusCode
+            };
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddAsync(ContactDto contactDto)
+        {
+            var data = await _contactService.AddAsync(contactDto);
 
             return new ObjectResult(data)
             {

@@ -10,6 +10,7 @@ namespace Rise.Task.Contact.Db
 
         }
         public DbSet<ContactModel> Contacts { get; set; }
+        public DbSet<AddressModel> Addresses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

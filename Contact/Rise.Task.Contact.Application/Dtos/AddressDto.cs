@@ -9,6 +9,7 @@ namespace Rise.Task.Contact.Application.Dtos
 {
     public class AddressDto
     {
+        public int Id { get; set; }
         public AddressType IletisimTipi { get; set; }
         public string IletisimTipiText => IletisimTipi.ToString();
         public string Iletisim { get; set; }
