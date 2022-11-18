@@ -21,16 +21,6 @@ namespace Rise.Task.Contact.Application.Services
             _contactDbContext = contactDbContext;
         }
 
-        public Task<ContactDto> AddAsync(ContactDto model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<NoContent> DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Response<List<ContactDto>>> GetAllWithGeoAsync(string geo)
         {
             var model = await _contactDbContext.Contacts.Where(x => x.Addresses.Any(g => g.IletisimTipi == AddressType.Konum && g.Iletisim == geo)).Include(x => x.Addresses).ToListAsync();
@@ -105,6 +95,16 @@ namespace Rise.Task.Contact.Application.Services
             };
 
             return Response<ContactDto>.Success(result, 200);
+        }
+
+        public Task<ContactDto> AddAsync(ContactDto model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<NoContent> DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public Task<AddressDto> AddAddressAsync(AddressAddDto model)

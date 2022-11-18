@@ -7,7 +7,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rise.Task.Report.Db
+namespace Rise.Task.Report.Api.Db
 {
     public class ReportDbContext : DbContext
     {
