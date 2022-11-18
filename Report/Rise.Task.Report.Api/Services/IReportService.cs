@@ -1,4 +1,5 @@
-﻿using Rise.Task.Report.Api.Models;
+﻿using Rise.Task.Report.Api.Domain;
+using Rise.Task.Report.Api.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Rise.Task.Report.Api.Services
         Task<Response<List<ContactReport>>> GetAllAsync();
         Task<Response<List<ContactReport>>> GetAllWithGeoAsync(string geo);
         Task<Response<ContactReport>> GetAsync(int id);
+        Task<Response<NoContent>> AddAsync(ReportModel reportModel);
+        Task<Response<NoContent>> UpdateAsync(ReportModel reportModel);
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Rise.Task.Report.Api.Db;
+using Rise.Task.Report.Api.Domain;
 using Rise.Task.Report.Api.Models;
 using System;
 using System.Collections.Generic;
@@ -71,6 +72,20 @@ namespace Rise.Task.Report.Api.Services
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<ContactReport>>>();
 
             return Response<List<ContactReport>>.Success(responseSuccess.Data, 200);
+        }
+
+        public async Task<Response<NoContent>> AddAsync(ReportModel reportModel)
+        {
+            await _reportDbContext.Reports.AddAsync(reportModel);
+            await _reportDbContext.SaveChangesAsync();
+            return Response<NoContent>.Success(200);
+        }
+
+        public async Task<Response<NoContent>> UpdateAsync(ReportModel reportModel)
+        {
+            _reportDbContext.Reports.Update(reportModel);
+            await _reportDbContext.SaveChangesAsync();
+            return Response<NoContent>.Success(200);
         }
     }
 }

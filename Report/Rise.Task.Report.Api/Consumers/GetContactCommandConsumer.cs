@@ -10,15 +10,16 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using static MassTransit.Util.ChartTable;
+using Rise.Task.Report.Api.Services;
 
 namespace RiseTask.Report.Api.Consumers
 {
     public class GetContactCommandConsumer : IConsumer<ContactReport>
     {
-        private readonly ReportDbContext _reportDbContext;
-        public GetContactCommandConsumer(ReportDbContext reportDbContext)
+        private readonly IReportService _reportService;
+        public GetContactCommandConsumer(IReportService reportService)
         {
-            _reportDbContext = reportDbContext;
+            _reportService = reportService;
         }
 
         public async Task Consume(ConsumeContext<ContactReport> context)
@@ -30,8 +31,7 @@ namespace RiseTask.Report.Api.Consumers
                     IsReady = false,
                     CreatedDate = DateTime.Now
                 };
-                await _reportDbContext.Reports.AddAsync(reportModel);
-                await _reportDbContext.SaveChangesAsync();
+                await _reportService.AddAsync(reportModel);
 
                 var data = context.Message;
                 var fileName = $"{data.Id}_{context.MessageId}.txt";
@@ -39,8 +39,7 @@ namespace RiseTask.Report.Api.Consumers
 
                 reportModel.IsReady = true;
                 reportModel.FilePath = fileName;
-                _reportDbContext.Reports.Update(reportModel);
-                await _reportDbContext.SaveChangesAsync();
+                await _reportService.UpdateAsync(reportModel);
 
             }
             catch (Exception ex)
@@ -48,16 +47,6 @@ namespace RiseTask.Report.Api.Consumers
 
                 throw;
             }
-
-
-
-            //TODO
-            //var data = await _contactService.GetAsync(context.Message.Id);
-            
-
-            //await _contactDbContext.Orders.AddAsync(order);
-
-            //await _contactDbContext.SaveChangesAsync();
         }
     }
 }
