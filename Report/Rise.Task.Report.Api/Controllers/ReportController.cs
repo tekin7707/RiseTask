@@ -43,7 +43,6 @@ namespace Rise.Task.Report.Api.Controllers
 
             var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri("queue:create-report-service"));
 
-
             await sendEndpoint.Send<ContactReport>(data.Data);
 
             var resultx = new ObjectResult(new NoContent())

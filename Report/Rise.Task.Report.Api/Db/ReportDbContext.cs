@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Rise.Task.Report.Api.Aggregate;
+using Rise.Task.Report.Api.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 using Rise.Task.Report.Api;
-using Rise.Task.Report.Api.Aggregate;
+using Rise.Task.Report.Api.Domain;
 using Rise.Task.Report.Api.Db;
 using Rise.Task.Report.Api.Models;
 using System;
@@ -34,9 +34,11 @@ namespace RiseTask.Report.Api.Consumers
                 await _reportDbContext.SaveChangesAsync();
 
                 var data = context.Message;
-                await File.WriteAllTextAsync($"wwwroot/{data.Id}_{context.MessageId}.txt", JsonSerializer.Serialize(data));
+                var fileName = $"{data.Id}_{context.MessageId}.txt";
+                await File.WriteAllTextAsync($"wwwroot/reports/{fileName}", JsonSerializer.Serialize(data));
 
                 reportModel.IsReady = true;
+                reportModel.FilePath = fileName;
                 _reportDbContext.Reports.Update(reportModel);
                 await _reportDbContext.SaveChangesAsync();
 

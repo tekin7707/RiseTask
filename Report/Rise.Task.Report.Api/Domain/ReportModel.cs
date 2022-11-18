@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Rise.Task.Report.Api.Aggregate
+namespace Rise.Task.Report.Api.Domain
 {
     public class ReportModel
     {
@@ -11,5 +11,6 @@ namespace Rise.Task.Report.Api.Aggregate
 
         public DateTime CreatedDate { get; set; }
         public bool IsReady { get; set; }
+        public string? FilePath { get; set; }
     }
 }

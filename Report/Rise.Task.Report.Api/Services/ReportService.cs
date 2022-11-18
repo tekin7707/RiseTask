@@ -18,12 +18,15 @@ namespace Rise.Task.Report.Api.Services
         private readonly IConfiguration _configuration;
         private readonly ReportDbContext _reportDbContext;
         private string BASE_API_URL = "";
+        private string FILE_DIRECTORY = "";
+
         public ReportService(HttpClient httpClient, ReportDbContext reportDbContext, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _reportDbContext = reportDbContext;
             _configuration = configuration;
             BASE_API_URL = _configuration.GetSection("ContactMicroserviceUrl").Value;
+            FILE_DIRECTORY = _configuration.GetSection("ReportFileDirectory").Value;
         }
 
         public async Task<Response<List<ContactReport>>> GetAllAsync()
