@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -22,6 +23,21 @@ namespace Rise.Task.Contact.Db.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Contacts", x => x.UUID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reports",
+                columns: table => new
+                {
+                    UUID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    IsReady = table.Column<bool>(type: "boolean", nullable: false),
+                    FilePath = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reports", x => x.UUID);
                 });
 
             migrationBuilder.CreateTable(
@@ -55,6 +71,9 @@ namespace Rise.Task.Contact.Db.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Addresses");
+
+            migrationBuilder.DropTable(
+                name: "Reports");
 
             migrationBuilder.DropTable(
                 name: "Contacts");

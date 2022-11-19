@@ -7,15 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contact", "Contact", "{DCCE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report", "Report", "{5DE3AFB0-8510-4C51-9869-FD1A622398B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Report.Api", "Report\Rise.Task.Report.Api\Rise.Task.Report.Api.csproj", "{455B6906-BC2D-436C-8F85-B8F159864D12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rise.Task.Report.Api", "Report\Rise.Task.Report.Api\Rise.Task.Report.Api.csproj", "{455B6906-BC2D-436C-8F85-B8F159864D12}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rise.Task.Contact.Api", "Contact\Rise.Task.Contact.Api\Rise.Task.Contact.Api.csproj", "{70877E8E-80C2-4DD5-A926-58324503AE2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Contact.Domain", "Contact\Rise.Task.Contact.Domain\Rise.Task.Contact.Domain.csproj", "{53D0D20E-951C-45C6-B069-CD63E74EED80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rise.Task.Contact.Domain", "Contact\Rise.Task.Contact.Domain\Rise.Task.Contact.Domain.csproj", "{53D0D20E-951C-45C6-B069-CD63E74EED80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Contact.Db", "Contact\Rise.Task.Contact.Db\Rise.Task.Contact.Db.csproj", "{DDFEB3BE-C4B8-410B-B5B5-954CD8EE879F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rise.Task.Contact.Db", "Contact\Rise.Task.Contact.Db\Rise.Task.Contact.Db.csproj", "{DDFEB3BE-C4B8-410B-B5B5-954CD8EE879F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Contact.Application", "Contact\Rise.Task.Contact.Application\Rise.Task.Contact.Application.csproj", "{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rise.Task.Contact.Application", "Contact\Rise.Task.Contact.Application\Rise.Task.Contact.Application.csproj", "{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{CD1B8771-63C8-47C7-A3D3-47C11466FC20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Shared", "Shared\Rise.Task.Shared\Rise.Task.Shared.csproj", "{A1C04682-AC54-4BAC-A1CE-9237CBE362DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,10 @@ Global
 		{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C04682-AC54-4BAC-A1CE-9237CBE362DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C04682-AC54-4BAC-A1CE-9237CBE362DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C04682-AC54-4BAC-A1CE-9237CBE362DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C04682-AC54-4BAC-A1CE-9237CBE362DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +61,7 @@ Global
 		{53D0D20E-951C-45C6-B069-CD63E74EED80} = {DCCE2827-E09E-470F-A2E9-A7B5F5042DA6}
 		{DDFEB3BE-C4B8-410B-B5B5-954CD8EE879F} = {DCCE2827-E09E-470F-A2E9-A7B5F5042DA6}
 		{334183CE-F20A-4C28-AAAA-E2FCFE5CBF31} = {DCCE2827-E09E-470F-A2E9-A7B5F5042DA6}
+		{A1C04682-AC54-4BAC-A1CE-9237CBE362DB} = {CD1B8771-63C8-47C7-A3D3-47C11466FC20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04781638-4661-45D1-9882-F4D90DE94558}

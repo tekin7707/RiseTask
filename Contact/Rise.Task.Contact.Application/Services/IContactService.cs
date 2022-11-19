@@ -1,5 +1,5 @@
 ﻿using Rise.Task.Contact.Application.Dtos;
-using Rise.Task.Contact.Application.Models;
+using Rise.Task.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +16,6 @@ namespace Rise.Task.Contact.Application.Services
         Task<Response<NoContent>> DeleteAsync(int id);
         Task<Response<AddressDto>> AddAddressAsync(AddressAddDto model);
         Task<Response<NoContent>> DeleteAddressAsync(int id);
-
-        Task<Response<List<ContactDto>>> GetAllWithGeoAsync(string geo);
 
     }
 }
