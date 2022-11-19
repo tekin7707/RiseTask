@@ -1,6 +1,5 @@
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
-using Rise.Task.Report.Api.Db;
 using Rise.Task.Report.Api.Services;
 using RiseTask.Report.Api.Consumers;
 
@@ -8,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMassTransit(x =>
 {
-    x.AddConsumer<GetContactCommandConsumer>();
+    //x.AddConsumer<GetContactCommandConsumer>();
     // Default Port : 5672
     x.UsingRabbitMq((context, cfg) =>
     {
@@ -18,15 +17,12 @@ builder.Services.AddMassTransit(x =>
             host.Password("guest");
         });
 
-        cfg.ReceiveEndpoint("create-report-service", e =>
-        {
-            e.ConfigureConsumer<GetContactCommandConsumer>(context);
-        });
+        //cfg.ReceiveEndpoint("tekin05", e =>
+        //{
+        //    e.ConfigureConsumer<GetContactCommandConsumer>(context);
+        //});
     });
 });
-
-builder.Services.AddDbContext<ReportDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IReportService, ReportService>();

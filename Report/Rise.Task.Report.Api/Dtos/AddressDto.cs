@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rise.Task.Report.Api.Models
+namespace Rise.Task.Report.Api.Dtos
 {
-    public class AddressReport
+    public class AddressDto
     {
         public int IletisimTipi { get; set; }
         public string IletisimTipiText { get; set; }

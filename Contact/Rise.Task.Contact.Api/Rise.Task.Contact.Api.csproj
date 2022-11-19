@@ -17,7 +17,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rise.Task.Contact.Application\Rise.Task.Contact.Application.csproj" />
-    <ProjectReference Include="..\Rise.Task.Contact.Db\Rise.Task.Contact.Db.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\reports\" />
   </ItemGroup>
 
 </Project>

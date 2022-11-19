@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Query.ExpressionTranslators.Internal;
 using Rise.Task.Contact.Application.Dtos;
-using Rise.Task.Contact.Application.Models;
 using Rise.Task.Contact.Db;
 using Rise.Task.Contact.Domain.Enums;
+using Rise.Task.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,31 +20,6 @@ namespace Rise.Task.Contact.Application.Services
         public ContactService(ContactDbContext contactDbContext)
         {
             _contactDbContext = contactDbContext;
-        }
-
-        public async Task<Response<List<ContactDto>>> GetAllWithGeoAsync(string geo)
-        {
-            var model = await _contactDbContext.Contacts.Where(x => x.Addresses.Any(g => g.IletisimTipi == AddressType.Konum && g.Iletisim == geo)).Include(x => x.Addresses).ToListAsync();
-
-            if (model == null)
-            {
-                return Response<List<ContactDto>>.Fail("Any contacts not found", 404);
-            }
-
-            var result = model.Select(x => new ContactDto
-            {
-                Id = x.UUID,
-                Ad = x.Ad,
-                Firma = x.Firma,
-                Soyad = x.Soyad,
-                Addresses = x.Addresses.Select(p => new AddressDto
-                {
-                    IletisimTipi = p.IletisimTipi,
-                    Iletisim = p.Iletisim
-                })
-            }).ToList();
-
-            return Response<List<ContactDto>>.Success(result, 200);
         }
 
         public async Task<Response<List<ContactDto>>> GetAllAsync()
