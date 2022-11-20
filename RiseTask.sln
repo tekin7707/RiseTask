@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rise.Task.Shared", "Shared\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{FF753D82-3785-4F5B-BFD5-1E193C8A3662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rise.Task.Test.Test", "Test\Rise.Task.Test.Test\Rise.Task.Test.Test.csproj", "{292C3AEB-15CF-4FC0-9B06-E48883D50519}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rise.Task.Test.Test", "Test\Rise.Task.Test.Test\Rise.Task.Test.Test.csproj", "{292C3AEB-15CF-4FC0-9B06-E48883D50519}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{57B5F071-433F-4467-9664-0DDB31239253}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

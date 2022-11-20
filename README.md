@@ -2,6 +2,18 @@
 
 **Proje başlatıldığında yeterli sayıda Mock data oluşturulmaktadır.
 ##
+D O C K E R
+
+Projeyi ayağa kaldırabilmek için Docker dosyaları ayarlanmıştır. Docker klasörüde yml dosyaları mevcut. Sistemde docker kurulu ise Docker-run.bat dosyası tüm ortamı sağlayacaktır. Docker üzerinde Docker adlı bir klasör oluşacak içerisinde postgres ve rabbitmq eklenecektir.
+
+* Açılan command penceresi kapatılırsa gerekli containerleri manual olarak start etmek gerekiyor.
+
+* Docker-run.bat ise eklenen containerları kaldırır.
+
+* rabbitMq için 15672 portundan arayüze erişebiliriz (guest:guest)
+  http://localhost:15672
+
+##
 Proje Contact ve Report mikroservislerinden oluşmaktaıdr. Rehber ile ilgili tüm database işleri Caontact mikroservisinde gerçekleşmektedir. Report mikroservisinde ise sadece oluşturulan raporların kaydedildiği farklı bir database vardır.
 
 Proje, her iki Api projesi birlikte ayağa kalkacak şekilde yapılandırılmalıdır. Swagger ekranlarında Api içeriği görülebilmektedir.
