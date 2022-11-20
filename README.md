@@ -14,7 +14,7 @@ Projeyi ayağa kaldırabilmek için Docker dosyaları ayarlanmıştır. Docker k
   http://localhost:15672
 
 ##
-Proje Contact ve Report mikroservislerinden oluşmaktaıdr. Rehber ile ilgili tüm database işleri Caontact mikroservisinde gerçekleşmektedir. Report mikroservisinde ise sadece oluşturulan raporların kaydedildiği farklı bir database vardır.
+Proje Contact ve Report mikroservislerinden oluşmaktadıdr. Rehber ile ilgili tüm database işleri Contact mikroservisinde gerçekleşmektedir. Report mikroservisinde ise herhangi bir DbContext bulunmamaktadır. Tüm raporlar REST üzerinden Contact mikroservisinden sağlanmaktadır.
 
 Proje, her iki Api projesi birlikte ayağa kalkacak şekilde yapılandırılmalıdır. Swagger ekranlarında Api içeriği görülebilmektedir.
 
@@ -25,12 +25,11 @@ Test projesinde Contact projesinde yer alan Contact ve Report servisleri için g
 
 ##
 
-Rapor için Report servisinde bir endpoint bulunmaktaıdr
+Rapor için Report servisinde bir endpoint bulunmaktadıdr
 
 http://localhost:5502/Reports/GeoReport
 
 Bu endpoint Contact Mikroservisinden raporu alıyor sonucu döndürüyor, bir taraftan da excel dosyasını oluşturmak için rabbitMq üzerinde bir talep açıyor. Bu talep Contact Mikroservisinde bulunan "Contact.Application.Consumers/GetContactCommandConsumer" isimli IConsumer ile yakalanıyor ve talep işleniyor.
-
 
 Rapor dosyası Rise.Task.Contact.Api\wwwroot\reports klasöründe oluşuyor ve ulaşım adresi üretilen raporların listesinde paylaşılıyor.
 
