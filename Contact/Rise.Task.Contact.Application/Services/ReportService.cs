@@ -8,10 +8,13 @@ using Rise.Task.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace Rise.Task.Contact.Application.Services
 {
@@ -19,7 +22,7 @@ namespace Rise.Task.Contact.Application.Services
     {
         private readonly IConfiguration _configuration;
         private readonly ContactDbContext _contactDbContext;
-        private string FILE_DIRECTORY = "reports/";
+        private string FILE_DIRECTORY = "wwwroot/reports/";
         private string APPLICATION_URL = "http://localhost:5501/";
 
         public ReportService(IConfiguration configuration, ContactDbContext contactDbContext)
@@ -50,6 +53,23 @@ namespace Rise.Task.Contact.Application.Services
             return Response<List<ContactReportModel>>.Success(contactReportModels, 200);
         }
 
+        public async Task<(byte[], string)> GetReportFileAsync(int reportId)
+        {
+            var report = await _contactDbContext.Reports.FirstOrDefaultAsync(x => x.UUID == reportId);
+
+            if (report == null)
+                return (null,"");
+
+            var filePath = $"{FILE_DIRECTORY}{report?.FilePath}";
+            if (File.Exists(filePath))
+            {
+                var bytes = await System.IO.File.ReadAllBytesAsync(filePath);
+                return (bytes, Path.GetFileName(filePath));
+            }
+            else
+                return (null, "");
+        }
+
         public async Task<Response<NoContent>> AddAsync(ReportModel reportModel)
         {
             await _contactDbContext.Reports.AddAsync(reportModel);
@@ -77,7 +97,7 @@ namespace Rise.Task.Contact.Application.Services
             {
                 Id = x.UUID,
                 CreatedDate = x.CreatedDate,
-                FilePath = $"{APPLICATION_URL}{FILE_DIRECTORY}{x.FilePath}",
+                FilePath = $"{APPLICATION_URL}GetReportFile/{x.UUID}",
                 IsReady = x.IsReady
             }).ToList();
 
@@ -98,7 +118,7 @@ namespace Rise.Task.Contact.Application.Services
             {
                 Id = model.UUID,
                 CreatedDate = model.CreatedDate,
-                FilePath = $"{APPLICATION_URL}{FILE_DIRECTORY}{model.FilePath}",
+                FilePath = $"{APPLICATION_URL}/GetReportFile/{id}",
                 IsReady = model.IsReady
             };
 

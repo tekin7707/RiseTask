@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rise.Task.Contact.Application.Services;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace Rise.Task.Contact.Api.Controllers
 {
@@ -49,5 +52,12 @@ namespace Rise.Task.Contact.Api.Controllers
             };
         }
 
+        [HttpGet]
+        [Route("/GetReportFile/{id}")]
+        public async Task<ActionResult> GetReportFileAsync(int id)
+        {
+            var data = await _reportService.GetReportFileAsync(id);
+            return data.Item2!=""? File(data.Item1, "text/plain", data.Item2): new ObjectResult(data){StatusCode = 404};
+        }
     }
 }

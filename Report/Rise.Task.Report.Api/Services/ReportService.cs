@@ -1,4 +1,5 @@
-﻿using Rise.Task.Report.Api.Dtos;
+﻿using Microsoft.AspNetCore.Mvc;
+using Rise.Task.Report.Api.Dtos;
 using Rise.Task.Shared.Models;
 
 namespace Rise.Task.Report.Api.Services
@@ -74,6 +75,13 @@ namespace Rise.Task.Report.Api.Services
             return Response<ReportDto>.Success(responseSuccess.Data, 200);
         }
 
+        public async Task<HttpResponseMessage> GetReportFileAsync(int reportId)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_API_URL}GetReportFile/{reportId}");
+
+            return response;
+        }
+
         public async Task<Response<List<ContactReportModel>>> PrepareReportAsync()
         {
             var response = await _httpClient.GetAsync($"{BASE_API_URL}GeoReports");
@@ -88,7 +96,5 @@ namespace Rise.Task.Report.Api.Services
 
             return Response<List<ContactReportModel>>.Success(responseSuccess.Data, 200);
         }
-
-
     }
 }

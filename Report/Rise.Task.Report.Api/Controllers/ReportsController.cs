@@ -90,5 +90,19 @@ namespace Rise.Task.Report.Api.Controllers
             return result;
         }
 
+        [HttpGet]
+        [Route("/GetReportFile/{id}")]
+        public async Task<ActionResult> GetReportFileAsync(int id)
+        {
+            var data = await _reportService.GetReportFileAsync(id);
+            if(data.IsSuccessStatusCode)
+            {
+                var bytes = await data.Content.ReadAsByteArrayAsync();
+                var filename = data.Content?.Headers?.ContentDisposition?.FileName??new Guid().ToString()+".xls";
+                return File(bytes, "text/plain", filename);
+            }
+            else
+                return  new ObjectResult(data) { StatusCode = 404 };
+        }
     }
 }

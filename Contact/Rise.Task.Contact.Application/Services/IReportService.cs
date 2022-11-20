@@ -16,6 +16,7 @@ namespace Rise.Task.Contact.Application.Services
         Task<Response<NoContent>> AddAsync(ReportModel reportModel);
         Task<Response<NoContent>> UpdateAsync(ReportModel reportModel);
         Task<Response<List<ContactReportModel>>> PrepareReportAsync();
+        Task<(byte[], string)> GetReportFileAsync(int reportId);
 
 
     }

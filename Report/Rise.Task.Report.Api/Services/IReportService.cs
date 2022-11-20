@@ -1,4 +1,5 @@
-﻿using Rise.Task.Report.Api.Dtos;
+﻿using Microsoft.AspNetCore.Mvc;
+using Rise.Task.Report.Api.Dtos;
 using Rise.Task.Shared.Models;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Rise.Task.Report.Api.Services
     public interface IReportService
     {
         Task<Response<List<ContactReportModel>>> PrepareReportAsync();
+        Task<HttpResponseMessage> GetReportFileAsync(int reportId);
 
         Task<Response<List<ReportDto>>> GetAllReportsAsync();
         Task<Response<ReportDto>> GetReportAsync(int id);

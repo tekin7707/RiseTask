@@ -1,13 +1,11 @@
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Rise.Task.Report.Api.Services;
-using RiseTask.Report.Api.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMassTransit(x =>
 {
-    //x.AddConsumer<GetContactCommandConsumer>();
     // Default Port : 5672
     x.UsingRabbitMq((context, cfg) =>
     {
@@ -16,11 +14,6 @@ builder.Services.AddMassTransit(x =>
             host.Username("guest");
             host.Password("guest");
         });
-
-        //cfg.ReceiveEndpoint("tekin05", e =>
-        //{
-        //    e.ConfigureConsumer<GetContactCommandConsumer>(context);
-        //});
     });
 });
 
