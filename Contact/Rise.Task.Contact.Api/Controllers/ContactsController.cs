@@ -1,18 +1,18 @@
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using Rise.Task.Contact.Application.Dtos;
 using Rise.Task.Contact.Application.Services;
 
 namespace Rise.Task.Contact.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ContactController : ControllerBase
+    public class ContactsController : ControllerBase
     {
-        private readonly ILogger<ContactController> _logger;
         private readonly IContactService _contactService;
 
-        public ContactController(ILogger<ContactController> logger, IContactService contactService)
+        public ContactsController(IContactService contactService)
         {
-            _logger = logger;
             _contactService = contactService;
         }
 
@@ -38,11 +38,10 @@ namespace Rise.Task.Contact.Api.Controllers
             };
         }
 
-        [HttpGet]
-        [Route("/GetAllWithGeo/{geo}")]
-        public async Task<IActionResult> GetAllWithGeoAsync(string geo)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            var data = await _contactService.GetAllWithGeoAsync(geo);
+            var data = await _contactService.DeleteAsync(id);
 
             return new ObjectResult(data)
             {
@@ -50,10 +49,10 @@ namespace Rise.Task.Contact.Api.Controllers
             };
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteAsync()
+        [HttpPost]
+        public async Task<IActionResult> AddAsync(ContactDto contactDto)
         {
-            var data = await _contactService.GetAllAsync();
+            var data = await _contactService.AddAsync(contactDto);
 
             return new ObjectResult(data)
             {

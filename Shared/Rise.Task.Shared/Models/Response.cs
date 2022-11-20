@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Rise.Task.Contact.Application.Models
+namespace Rise.Task.Shared.Models
 {
     public class Response<T>
     {

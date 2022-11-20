@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  contactdb:
+    container_name: contactcontainerdb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - contactdb_volume:/var/lib/posgresql/data
+    environment:
+      - POSTGRES_USER=sa
+      - POSTGRES_PASSWORD=1
+      - POSTGRES_DB=contactdb
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"

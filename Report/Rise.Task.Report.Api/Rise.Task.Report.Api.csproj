@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <ProjectReference Include="..\..\Shared\Rise.Task.Shared\Rise.Task.Shared.csproj" />
   </ItemGroup>
 
 </Project>

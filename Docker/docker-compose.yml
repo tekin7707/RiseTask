@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  contactdb:
+    image: postgres
+  rabbitmq:
+    image: rabbitmq:3.8.14-management    
+volumes:
+  contactdb_volume:

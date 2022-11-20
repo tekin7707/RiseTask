@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rise.Task.Report.Api.Models
+namespace Rise.Task.Shared.Enums
 {
-    public class NoContent
+    public enum AddressType
     {
+        Telefon,
+        Email,
+        Konum
     }
 }
