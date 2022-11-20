@@ -107,7 +107,6 @@ namespace Rise.Task.Contact.Application.Services
             };
 
             return Response<ContactDto>.Success(result, 200);
-
         }
 
         public async Task<Response<NoContent>> DeleteAsync(int id)

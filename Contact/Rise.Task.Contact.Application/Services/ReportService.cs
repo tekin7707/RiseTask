@@ -53,15 +53,15 @@ namespace Rise.Task.Contact.Application.Services
         public async Task<Response<NoContent>> AddAsync(ReportModel reportModel)
         {
             await _contactDbContext.Reports.AddAsync(reportModel);
-            await _contactDbContext.SaveChangesAsync();
-            return Response<NoContent>.Success(200);
+            int id = await _contactDbContext.SaveChangesAsync();
+            return id > 0 ? Response<NoContent>.Success(200) : Response<NoContent>.Fail("Record couldn't created.", 404);
         }
 
         public async Task<Response<NoContent>> UpdateAsync(ReportModel reportModel)
         {
             _contactDbContext.Reports.Update(reportModel);
-            await _contactDbContext.SaveChangesAsync();
-            return Response<NoContent>.Success(200);
+            int id = await _contactDbContext.SaveChangesAsync();
+            return id > 0 ? Response<NoContent>.Success(200) : Response<NoContent>.Fail("Record couldn't updated.", 404);
         }
 
         public async Task<Response<List<ReportDto>>> GetAllAsync()
@@ -77,7 +77,7 @@ namespace Rise.Task.Contact.Application.Services
             {
                 Id = x.UUID,
                 CreatedDate = x.CreatedDate,
-                FilePath = $"{APPLICATION_URL}{FILE_DIRECTORY}{x.FilePath }",
+                FilePath = $"{APPLICATION_URL}{FILE_DIRECTORY}{x.FilePath}",
                 IsReady = x.IsReady
             }).ToList();
 
